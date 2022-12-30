@@ -2,10 +2,11 @@ import express, { Express, Request, Response } from 'express';
 import { Todo } from './lib/todo.js';
 import bodyParser from 'body-parser';
 import mysql from 'mysql';
+import cors from 'cors';
 
 const app: Express = express();
 app.use(bodyParser.json());
-
+app.use(cors());
 
 const connection = mysql.createConnection({
   host: 'localhost',
