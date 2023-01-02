@@ -1,12 +1,26 @@
-<li *ngFor="let todo of todos$ | async">
-  <ul class="tasks">
-      <span class="id">{{todo.id}}</span>
-      <span class="id">{{todo.name}}</span>
-
-      <button type="button" class="btn btn-primary"
-      tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-Simple demo
-</button>
-    
-  </ul>
-</li>j
+<body class="body">
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nom de la tache</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let todo of todos$ | async">
+        <tr>
+          <td class="todo-id">{{todo.id}}</td>
+          <td class="todo-name">{{todo.name}}</td>
+          <td class="buttons">
+            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+              <button type="button" class="btn btn-success">Terminer</button>
+              <button type="button" class="btn btn-warning">Modifier</button>
+              <button type="button" class="btn btn-danger">Supprimer</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>

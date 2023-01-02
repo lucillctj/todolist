@@ -11,7 +11,7 @@ export class AppHttpService {
   constructor(private http: HttpClient) { }
 
   getAllTodos(): Observable<Task[]> {
-    return this.http.get<Task[]>('http://localhost:5000/');
-    
+    return this.http.get<Task[]>('http://localhost:5000/')
+  
   }
 }

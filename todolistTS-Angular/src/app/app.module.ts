@@ -5,13 +5,13 @@ import { AppComponent } from 'app/app.component';
 import { TodolistComponent } from 'app/components/todolist/todolist.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { TasksComponent } from 'app/components/tasks/tasks.component';
+import { TaskComponent } from 'app/components/task/task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodolistComponent,
-    TasksComponent
+    TaskComponent
   ],
   imports: [
     BrowserModule,

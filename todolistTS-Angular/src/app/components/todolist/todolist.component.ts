@@ -12,7 +12,7 @@ import { Task } from 'app/models/todolist';
 export class TodolistComponent implements OnInit {
   todos$!: Observable<Task[]>;
   
-  constructor(private appHttpService: AppHttpService) { } //injection de dépendance
+  constructor(private appHttpService: AppHttpService) { }
 
   ngOnInit(): void {
       this.todos$ = this.appHttpService.getAllTodos();
