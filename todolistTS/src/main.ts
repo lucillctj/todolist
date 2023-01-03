@@ -25,7 +25,7 @@ connection.connect(function(error) {
 //requête GET SQL
 app.get('/', (_: Request, res: Response) => {
   connection.query(
-    'SELECT * FROM todo ORDER BY date',
+    'SELECT * FROM todo',
     (error: Error, results) => {
       if (error) throw error;
       else {

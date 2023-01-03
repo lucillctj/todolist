@@ -12,6 +12,5 @@ export class AppHttpService {
 
   getAllTodos(): Observable<Task[]> {
     return this.http.get<Task[]>('http://localhost:5000/')
-  
   }
 }

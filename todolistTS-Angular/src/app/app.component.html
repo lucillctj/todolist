@@ -1,8 +1,22 @@
-<!-- <body class="body">
-    <h1 class="h1">{{title}}</h1>
-    <app-todolist></app-todolist>
-    <app-tasks></app-tasks>
-</body> -->
+<div class="app">
+    <header>
+        <section>
+            <h1>{{title}}</h1>
+        </section>
+        <nav>
 
-<h1>{{title}}</h1>
-<router-outlet></router-outlet>
+        </nav>
+    </header>
+
+    <main>
+        <div class="row">
+            <div class="col-8">
+                <app-todolist></app-todolist>
+            </div>
+            <div class="col-4">
+                <app-task></app-task>
+            </div>
+        </div>
+        <!-- <router-outlet></router-outlet> -->
+    </main>
+</div>

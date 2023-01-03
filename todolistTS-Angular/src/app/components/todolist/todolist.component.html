@@ -11,9 +11,12 @@
       <tbody *ngFor="let todo of todos$ | async">
         <tr>
           <td class="todo-id">{{todo.id}}</td>
-          <td class="todo-name">{{todo.name}}</td>
+          <td class="todo-name">
+            <a class="link" (click)="openTaskDetails()">{{todo.name}}</a>
+          </td>
           <td class="buttons">
             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+              <button type="button" class="btn btn-get">Afficher</button>
               <button type="button" class="btn btn-success">Terminer</button>
               <button type="button" class="btn btn-warning">Modifier</button>
               <button type="button" class="btn btn-danger">Supprimer</button>
@@ -22,5 +25,13 @@
         </tr>
       </tbody>
     </table>
+    <div class="card">
+      <div class="card" *ngIf="let todo of todos$ | async">
+      <h5 class="card-header">Détail de la liste</h5>
+      <div class="card-body" *ngFor="let todo of todos$ | async">
+        <h5 class="card-title">Id : {{todo.id}}</h5>
+        <p class="card-text">Nom : {{todo.name}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
   </div>
-</body>
