@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TodolistComponent } from './components/todolist/todolist.component';
-import { TaskComponent } from './components/task/task.component';
+import { HomeComponent } from './pages/home/home.component';
 
 
 const routes: Routes = [
-  {path: '', component: TodolistComponent},
-  {path: 'task', component: TaskComponent}
+  {path: '', component: HomeComponent},
+  {path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
