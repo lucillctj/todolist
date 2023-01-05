@@ -6,7 +6,6 @@ import { TodolistComponent } from 'app/components/todolist/todolist.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TaskComponent } from 'app/components/task/task.component';
-import { CommonModule } from '@angular/common';
 import { HomeComponent } from './pages/home/home.component';
 
 

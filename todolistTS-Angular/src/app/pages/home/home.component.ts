@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
 })
 
 export class HomeComponent {
-  
+  taskId: number;
+
+  showTaskDetails(taskId: number) {
+    this.taskId = taskId;
+  }
 };

@@ -47,7 +47,7 @@ app.get('/:id', (req: Request, res: Response) => {
       } else {
         res.status(200);
         console.log('Success!');
-        res.send(results);
+        res.send(results[0]);
       }
     }
   )

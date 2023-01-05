@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-8">
-    <todolist></todolist>
+    <todolist (taskId)="showTaskDetails($event)"></todolist>
   </div>
   <div class="col-4">
-    <task></task>
+    <task [taskId]=taskId *ngIf="taskId"></task>
   </div>
 </div>

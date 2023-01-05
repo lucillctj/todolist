@@ -8,15 +8,14 @@
           <th scope="col">Actions</th>
         </tr>
       </thead>
-      <tbody *ngFor="let todo of todos$ | async">
+      <tbody *ngFor="let task of todos$ | async">
         <tr>
-          <td class="todo-id">{{todo.id}}</td>
-          <td class="todo-name">
-            <!-- <a class="link" [routerLink]="['/task', todo.id]">{{todo.name}}</a> -->
+          <td class="todo-id">{{task.id}}</td>
+          <td class="todo-name"> {{task.name}}
           </td>
           <td class="buttons">
             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-              <button type="button" class="btn btn-get">Afficher</button>
+              <button type="button" class="btn btn-get" (click)="selectTask(task.id)">Afficher</button>
               <button type="button" class="btn btn-success">Terminer</button>
               <button type="button" class="btn btn-warning">Modifier</button>
               <button type="button" class="btn btn-danger">Supprimer</button>

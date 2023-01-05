@@ -1,11 +1,10 @@
-<!-- <div class="card" *ngIf="todos$ | async as todos"> -->
-<h5 class="card-header">Détail de la liste</h5>
-<div class="card" *ngIf="task$ | async as task">
-  <!-- *ngFor="let task of task$ | async" -->
-  <a class="link" [routerLink]="['/task', task.id]">{{task.name}}</a>
-  <div class="card-body">
-    <h5 class="card-title">Id : {{task.id}}</h5>
-    <p class="card-text">Nom : {{task.name}}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+<div *ngIf="task$ | async; let task">
+  <div class="card">
+    <tr>
+      <h5 class="card-header">Détail de la liste </h5>
+      <div class="card-body">
+        <h5 class="card-title">Id : {{task.id}}</h5>
+        <p class="card-text">Nom : {{task.name}}</p>
+      </div>
   </div>
 </div>
