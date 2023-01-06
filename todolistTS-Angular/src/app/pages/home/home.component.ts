@@ -8,8 +8,14 @@ import { Component } from '@angular/core';
 
 export class HomeComponent {
   taskId: number;
+  taskIdUpdate: number;
 
   showTaskDetails(taskId: number) {
     this.taskId = taskId;
+  }
+
+  showTaskToUpdate(taskIdUpdate: number){
+    // console.log(taskIdUpdate);
+    this.taskIdUpdate = taskIdUpdate;
   }
 };

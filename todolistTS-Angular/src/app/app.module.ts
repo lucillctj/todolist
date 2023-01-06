@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TaskComponent } from 'app/components/task/task.component';
 import { HomeComponent } from './pages/home/home.component';
+import { FormUpdateComponent } from 'app/components/form-update/form-update.component';
+import { FormCreateComponent } from './components/form-create/form-create.component';
 
 
 
@@ -15,7 +17,9 @@ import { HomeComponent } from './pages/home/home.component';
     AppComponent,
     HomeComponent,
     TodolistComponent,
-    TaskComponent
+    TaskComponent,
+    FormUpdateComponent,
+    FormCreateComponent
   ],
   imports: [
     BrowserModule,

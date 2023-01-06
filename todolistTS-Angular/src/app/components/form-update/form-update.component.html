@@ -1,0 +1,11 @@
+  <body class="body" *ngIf="task$ | async; let task">
+    <form #taskUpdate="ngForm">
+        <div class="form-group">
+            <label>Entrer une tache :</label>
+          <input type="name" class="form-control" name="name" placeholder={{task.name}} ngModel>
+        </div>
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+        <button type="button" class="btn btn-warning" (click)="updateTask(taskUpdate.value)">Modifier</button>
+        </div>
+    </form>
+      </body>

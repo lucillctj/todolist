@@ -15,10 +15,10 @@
           </td>
           <td class="buttons">
             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-              <button type="button" class="btn btn-get" (click)="selectTask(task.id)">Afficher</button>
+              <button type="button" class="btn btn-get" (click)="selectTaskToGet(task.id)">Afficher</button>
               <button type="button" class="btn btn-success">Terminer</button>
-              <button type="button" class="btn btn-warning">Modifier</button>
-              <button type="button" class="btn btn-danger">Supprimer</button>
+              <button type="button" class="btn btn-warning" (click)="selectTaskToUpdate(task.id)">Modifier</button>
+              <button type="button" class="btn btn-danger" (click)="selectTaskToDelete(task.id)">Supprimer</button>
             </div>
           </td>
         </tr>

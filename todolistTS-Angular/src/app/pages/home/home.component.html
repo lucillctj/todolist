@@ -1,8 +1,14 @@
 <div class="row">
   <div class="col-8">
-    <todolist (taskId)="showTaskDetails($event)"></todolist>
+    <todolist 
+      (taskId)="showTaskDetails($event)"
+      (taskIdUpdate)="showTaskToUpdate($event)"
+    ></todolist>
   </div>
   <div class="col-4">
     <task [taskId]=taskId *ngIf="taskId"></task>
   </div>
+</div>
+<div>
+<form-update [taskIdUpdate]=taskIdUpdate *ngIf="taskIdUpdate"></form-update>
 </div>

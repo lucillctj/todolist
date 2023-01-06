@@ -10,19 +10,13 @@ import { Task } from 'app/models/todolist';
 })
 
 export class TaskComponent implements OnChanges {
-  selectedTask = 'ff';
   task$: Observable<Task>;
 
   @Input() taskId: number;
 
   constructor(private appHttpService: AppHttpService) { }
 
-  // openTaskDetail() {
-  //   this.task$;
-  // }
-
   ngOnChanges(changes: SimpleChanges) {
     this.task$ = this.appHttpService.getTaskById(changes['taskId'].currentValue);
-    console.log(this.task$);
   }
 }
