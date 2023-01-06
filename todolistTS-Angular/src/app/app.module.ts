@@ -8,8 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { TaskComponent } from 'app/components/task/task.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FormUpdateComponent } from 'app/components/form-update/form-update.component';
-import { FormCreateComponent } from './components/form-create/form-create.component';
-
 
 
 @NgModule({
@@ -18,8 +16,7 @@ import { FormCreateComponent } from './components/form-create/form-create.compon
     HomeComponent,
     TodolistComponent,
     TaskComponent,
-    FormUpdateComponent,
-    FormCreateComponent
+    FormUpdateComponent
   ],
   imports: [
     BrowserModule,
