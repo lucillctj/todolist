@@ -58,7 +58,6 @@ app.post('/', async (req: Request, res: Response) => {
   const body = req.body;
   let sql = 'INSERT INTO todo SET ?';
   let postTodo = {
-    id: body.id,
     name: body.name,
     date: body.date
   };
@@ -70,8 +69,9 @@ app.post('/', async (req: Request, res: Response) => {
       return error;
     }
     else {
+      console.log(results);
       res.status(200);
-      return res.send(`New todo created : {id = ${postTodo.id}, name = ${postTodo.name}, date = ${postTodo.date}}`);
+      return res.send(`New todo created : {id = ${results.insertId} , name = ${postTodo.name}, date = ${postTodo.date}}`);
     }
   });
 });
@@ -108,7 +108,7 @@ app.delete('/:id', (req: Request, res: Response) => {
       else {
         res.status(200);
         console.log('Success!');
-        res.send(`Todo n°${idParams} deleted`);
+        res.send({ idParams });
       }
     })
 });

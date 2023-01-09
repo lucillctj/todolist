@@ -1,10 +1,9 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, Output, SimpleChanges, ViewChild, EventEmitter } from '@angular/core';
 import { AppHttpService } from 'app/services/app-http.service';
 import { Observable } from 'rxjs';
 import { Task } from 'app/models/todolist';
-import { identifierName } from '@angular/compiler';
 import { NgForm } from '@angular/forms';
-import { stringify } from 'querystring';
+
 
 @Component({
   selector: 'form-update',
@@ -14,8 +13,8 @@ import { stringify } from 'querystring';
 export class FormUpdateComponent implements OnChanges {
   task$: Observable<Task>;
   @ViewChild('taskUpdate') form: NgForm;
-
   @Input() taskIdUpdate: number;
+  @Output() clickTaskUpdate = new EventEmitter<boolean>();
 
   constructor(private appHttpService: AppHttpService) {
 
@@ -26,6 +25,7 @@ export class FormUpdateComponent implements OnChanges {
   }
 
   updateTask(data: Task) {
+    this.clickTaskUpdate.emit();
     this.appHttpService.updateTaskById(this.taskIdUpdate, data)
       .subscribe(data => this.taskIdUpdate = data.id);
       console.log(this.form);

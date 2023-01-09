@@ -3,12 +3,14 @@
     <todolist 
       (taskId)="showTaskDetails($event)"
       (taskIdUpdate)="showTaskToUpdate($event)"
+      (createTask)="createNewTask($event)"
+
     ></todolist>
   </div>
   <div class="col-4">
     <task [taskId]=taskId *ngIf="taskId"></task>
-  </div>
+    <form-update [taskIdUpdate]=taskIdUpdate *ngIf="taskIdUpdate"></form-update>
 </div>
 <div>
-<form-update [taskIdUpdate]=taskIdUpdate *ngIf="taskIdUpdate"></form-update>
+  <form-create [createTask]=createTask *ngIf="createTask"></form-create>
 </div>

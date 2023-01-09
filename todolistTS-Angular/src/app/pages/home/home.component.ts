@@ -9,6 +9,8 @@ import { Component } from '@angular/core';
 export class HomeComponent {
   taskId: number;
   taskIdUpdate: number;
+  createTask: boolean;
+  clickTaskUpdate: boolean;
 
   showTaskDetails(taskId: number) {
     this.taskId = taskId;
@@ -17,5 +19,9 @@ export class HomeComponent {
   showTaskToUpdate(taskIdUpdate: number){
     // console.log(taskIdUpdate);
     this.taskIdUpdate = taskIdUpdate;
+  }
+
+  createNewTask(createTask: boolean){
+    this.createTask = createTask;
   }
 };

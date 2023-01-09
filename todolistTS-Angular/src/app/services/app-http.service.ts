@@ -27,8 +27,8 @@ export class AppHttpService {
     return this.http.post<Task>(`http://localhost:5000/`, data)
   }
 
-  deleteTask(taskId: number): Observable<Task> {
-    return this.http.delete<Task>(`http://localhost:5000/${taskId}`)
+  deleteTask(taskId: number): Observable<string> {
+    return this.http.delete<string>(`http://localhost:5000/${taskId}`)
   }
 
 }
