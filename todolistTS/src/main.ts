@@ -91,7 +91,7 @@ app.put('/:id', async (req: Request, res: Response) => {
       return res.send('No todo found');
     }
     res.status(200);
-    return res.send('Todo modified!');
+    return res.send({idParams});
   })
 });
 

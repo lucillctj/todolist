@@ -2,6 +2,8 @@ import { Component, OnInit, Output, EventEmitter, AfterViewChecked, SimpleChange
 import { AppHttpService } from 'app/services/app-http.service';
 import { Observable, tap } from 'rxjs';
 import { Task } from 'app/models/todolist';
+import { faEye, faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+
 
 
 @Component({
@@ -11,12 +13,18 @@ import { Task } from 'app/models/todolist';
 })
 
 export class TodolistComponent implements OnInit {
+  faEye = faEye;
+  faPenToSquare = faPenToSquare;
+  faTrashCan = faTrashCan;
+
   todos$: Observable<Task[]>;
   task$: Observable<Task>;
 
   @Output() taskId = new EventEmitter<number>();
   @Output() taskIdUpdate = new EventEmitter<number>();
   @Output() createTask = new EventEmitter<boolean>();
+  @Input() clickTaskUpdate: boolean;
+  @Input() clickTaskCreate: boolean;
 
   constructor(private appHttpService: AppHttpService) { }
 
@@ -29,25 +37,35 @@ export class TodolistComponent implements OnInit {
   }
 
   refresh(): void {
+    if((this.clickTaskUpdate=true) || (this.clickTaskCreate=true)){
     this.todos$ = this.appHttpService.getAllTodos();
-    console.log('coucou');
+    console.log('update a fonctionnée !');
+    }else {
+      this.todos$ = this.appHttpService.getAllTodos();
+      console.log('update a pas fonctionnée !');
+    }
   }
 
   selectTaskToUpdate(taskIdUpdate: number) {
     this.taskIdUpdate.emit(taskIdUpdate);
+    // if (this.clickTaskUpdate=true){
+    //   this.refresh();
+    // }
   }
+
+  // selectClickUpdate(clickTaskUpdate: boolean){
+  //   if (clickTaskUpdate=true){
+  //     this.refresh()
+  //   }else{
+  //     console.log('error')
+  //   }
+  // }
 
   selectToCreateTask(createTask: boolean) {
     this.createTask.emit(createTask = true);
   }
 
   selectTaskToDelete(taskId: number): void {
-    // this.appHttpService.deleteTask(taskId)
-    //   .pipe(
-    //     tap(() => {
-    //       this.refresh()
-    //     })
-    //   ).subscribe();
     this.appHttpService.deleteTask(taskId).subscribe(() => this.refresh());
   }
 };

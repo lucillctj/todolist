@@ -1,10 +1,10 @@
-<div *ngIf="task$ | async; let task">
+<body *ngIf="task$ | async; let task">
   <div class="card">
     <tr>
       <h5 class="card-header">Détail de la liste </h5>
       <div class="card-body">
-        <h5 class="card-title">Id : {{task.id}}</h5>
-        <p class="card-text">Nom : {{task.name}}</p>
+        <p class="todo-name">Nom : {{task.name}}</p>
+        <h5 class="todo-id">Id : {{task.id}}</h5>
       </div>
   </div>
-</div>
+</body>

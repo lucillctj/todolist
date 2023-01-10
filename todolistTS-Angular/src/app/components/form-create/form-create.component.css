@@ -1,0 +1,31 @@
+body {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: rgba(61, 61, 67, 0.2) 0px 8px 15px 3px;
+  }
+.btn-group {
+    width: 100%;
+}
+
+.form-group {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2em;
+    font-weight: 350;
+  }
+
+.btn-create {
+    background-color: #d77d00;
+    color: rgb(255, 255, 255);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 350;
+    padding: 0.3rem;
+    margin-top: 8px;
+    width: 100%;
+}
+  
+.btn-create:hover {
+    background-color: #cc7700;
+    color: rgb(255, 255, 255);
+}

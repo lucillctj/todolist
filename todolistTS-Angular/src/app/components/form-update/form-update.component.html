@@ -1,12 +1,9 @@
-  <body class="body" *ngIf="task$ | async; let task">
+  <body *ngIf="task$ | async; let task">
     <title>Modifier une tache</title>
     <form #taskUpdate="ngForm">
         <div class="form-group">
-            <label>Modifier nom :</label>
           <input type="name" class="form-control" name="name" placeholder={{task.name}} ngModel required>
         </div>
-        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-        <button type="button" class="btn btn-warning" (click)="updateTask(taskUpdate.value)">Modifier</button>
-        </div>
+        <button type="button" class="btn-update" (click)="updateTask(taskUpdate.value)">Modifier</button>
     </form>
 </body>

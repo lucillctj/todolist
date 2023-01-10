@@ -10,7 +10,8 @@ export class HomeComponent {
   taskId: number;
   taskIdUpdate: number;
   createTask: boolean;
-  clickTaskUpdate: boolean;
+  clickTaskUpdate: boolean
+  clickTaskCreate: boolean;
 
   showTaskDetails(taskId: number) {
     this.taskId = taskId;
@@ -21,7 +22,19 @@ export class HomeComponent {
     this.taskIdUpdate = taskIdUpdate;
   }
 
+  // updateTask(clickTaskUpdate: any){
+  //   this.clickTaskUpdate = clickTaskUpdate;
+  // }
+
+  updateListTasks(clickTaskUpdate: boolean){
+    this.clickTaskUpdate = clickTaskUpdate;
+  }
+
   createNewTask(createTask: boolean){
     this.createTask = createTask;
+  }
+
+  clickCreateNewTask(clickTaskCreate: boolean){
+    this.clickTaskCreate = clickTaskCreate;
   }
 };

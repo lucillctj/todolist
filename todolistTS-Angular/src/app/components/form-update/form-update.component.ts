@@ -24,12 +24,10 @@ export class FormUpdateComponent implements OnChanges {
     this.task$ = this.appHttpService.getTaskById(changes['taskIdUpdate'].currentValue);
   }
 
-  updateTask(data: Task) {
+  updateTask (data: Task) {
     this.clickTaskUpdate.emit();
     this.appHttpService.updateTaskById(this.taskIdUpdate, data)
       .subscribe(data => this.taskIdUpdate = data.id);
-      console.log(this.form);
-      
-    
   }
+
 }

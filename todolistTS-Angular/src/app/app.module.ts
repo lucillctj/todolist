@@ -9,6 +9,7 @@ import { TaskComponent } from 'app/components/task/task.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FormUpdateComponent } from 'app/components/form-update/form-update.component';
 import { FormCreateComponent } from './components/form-create/form-create.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FormCreateComponent } from './components/form-create/form-create.compon
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

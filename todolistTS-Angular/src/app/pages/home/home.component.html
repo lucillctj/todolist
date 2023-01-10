@@ -1,16 +1,19 @@
 <div class="row">
-  <div class="col-8">
+  <div class="col-6">
     <todolist 
       (taskId)="showTaskDetails($event)"
       (taskIdUpdate)="showTaskToUpdate($event)"
       (createTask)="createNewTask($event)"
-
+      [clickTaskUpdate]=clickTaskUpdate
+      [clickTaskCreate]=clickTaskCreate
     ></todolist>
   </div>
-  <div class="col-4">
+  <div class="col-6">
     <task [taskId]=taskId *ngIf="taskId"></task>
-    <form-update [taskIdUpdate]=taskIdUpdate *ngIf="taskIdUpdate"></form-update>
-</div>
-<div>
-  <form-create [createTask]=createTask *ngIf="createTask"></form-create>
+    <form-update [taskIdUpdate]=taskIdUpdate *ngIf="taskIdUpdate"
+      (clickTaskUpdate)="updateListTasks($event)"></form-update>
+    <!-- <form-create [createTask]=createTask *ngIf="createTask"
+    (clickTaskCreate)="clickCreateNewTask($event)"></form-create> -->
+    <form-create [createTask]=createTask *ngIf="createTask"></form-create>
+  </div>
 </div>
