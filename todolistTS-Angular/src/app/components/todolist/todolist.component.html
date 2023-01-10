@@ -1,5 +1,6 @@
 <body class="body">
   <div>
+    <button class="btn-create" (click)="selectToCreateTask(true)"> Créer une tache</button>
     <table>
       <tbody class="list" *ngFor="let task of todos$ | async">
         <tr class="list-block">
@@ -24,6 +25,5 @@
         </tr>
       </tbody>
     </table>
-    <button class="btn-create" (click)="selectToCreateTask(true)"> Créer une tache</button>
   </div>
 </body>

@@ -3,6 +3,7 @@ body {
     padding: 10px;
     border-radius: 4px;
     box-shadow: rgba(61, 61, 67, 0.2) 0px 8px 15px 3px;
+    margin-top: 0.8em;
   }
 .btn-group {
     width: 100%;
