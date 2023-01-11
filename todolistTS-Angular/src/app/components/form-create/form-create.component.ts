@@ -1,29 +1,25 @@
-import { Component, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Task } from 'app/models/todolist';
 import { AppHttpService } from 'app/services/app-http.service';
-import { NgForm } from '@angular/forms';
-import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'form-create',
   templateUrl: './form-create.component.html',
   styleUrls: ['./form-create.component.css']
 })
-export class FormCreateComponent implements OnInit {
+export class FormCreateComponent {
   @ViewChild('taskCreate') form: NgForm;
-  @Input() createTask: boolean;
-  // @Output() clickTaskCreate = new EventEmitter<boolean>();
+  @Input() createTask: boolean; //reçoit event depuis home
+  @Output() clickCreate: EventEmitter<boolean> = new EventEmitter(); //envoi event à home
   
 
   constructor(private appHttpService: AppHttpService) { }
 
-  ngOnInit(): void {
-
-  }
 
   createNewTask(data: Task) {
-    // this.clickTaskCreate.emit(clickTaskCreate=true);
     this.appHttpService.createTask(data)
       .subscribe();
+    this.clickCreate.emit();
   }
 }

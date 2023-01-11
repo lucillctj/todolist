@@ -1,10 +1,8 @@
-import { Component, OnInit, Output, EventEmitter, AfterViewChecked, SimpleChanges, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { AppHttpService } from 'app/services/app-http.service';
-import { Observable, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Task } from 'app/models/todolist';
 import { faEye, faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
-
-
 
 @Component({
   selector: 'todolist',
@@ -20,53 +18,39 @@ export class TodolistComponent implements OnInit {
   todos$: Observable<Task[]>;
   task$: Observable<Task>;
 
-  @Output() taskId = new EventEmitter<number>();
-  @Output() taskIdUpdate = new EventEmitter<number>();
-  @Output() createTask = new EventEmitter<boolean>();
+
+  @Output() taskId = new EventEmitter<number>(); //envoi à home
+  @Output() taskIdUpdate = new EventEmitter<number>(); //envoi à home
+  @Output() createTask = new EventEmitter<boolean>(); //envoi à home
   @Input() clickTaskUpdate: boolean;
-  @Input() clickTaskCreate: boolean;
+
+  @Input() clickCreate: EventEmitter<boolean>;
+    
 
   constructor(private appHttpService: AppHttpService) { }
 
-  selectTaskToGet(taskId: number) {
-    this.taskId.emit(taskId);
-  }
-
   ngOnInit(): void {
+    if(this.clickCreate)
+      this.clickCreate.subscribe(() => this.refresh())
     this.refresh();
   }
 
   refresh(): void {
-    if((this.clickTaskUpdate=true) || (this.clickTaskCreate=true)){
     this.todos$ = this.appHttpService.getAllTodos();
     console.log('update a fonctionnée !');
-    }else {
-      this.todos$ = this.appHttpService.getAllTodos();
-      console.log('update a pas fonctionnée !');
-    }
   }
 
-  selectTaskToUpdate(taskIdUpdate: number) {
+  selectGet(taskId: number) { //aller vers home pour aperçu
+    this.taskId.emit(taskId);
+  }
+  selectUpdate(taskIdUpdate: number) { // aller vers home pour modif
     this.taskIdUpdate.emit(taskIdUpdate);
-    // if (this.clickTaskUpdate=true){
-    //   this.refresh();
-    // }
   }
-
-  // selectClickUpdate(clickTaskUpdate: boolean){
-  //   if (clickTaskUpdate=true){
-  //     this.refresh()
-  //   }else{
-  //     console.log('error')
-  //   }
-  // }
-
-  selectToCreateTask(createTask: boolean) {
-    this.createTask.emit(createTask = true);
-  }
-
-  selectTaskToDelete(taskId: number): void {
+  selectDelete(taskId: number): void { //supprimer
     this.appHttpService.deleteTask(taskId).subscribe(() => this.refresh());
+  }
+  selectCreate(createTask: boolean) { //aller vers home pour création
+    this.createTask.emit(createTask = true);
   }
 };
 

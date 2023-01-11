@@ -1,6 +1,6 @@
 <body class="body">
   <div>
-    <button class="btn-create" (click)="selectToCreateTask(true)"> Créer une tache</button>
+    <button class="btn-create" (click)="selectCreate(true)"> Créer une tache</button>
     <table>
       <tbody class="list" *ngFor="let task of todos$ | async">
         <tr class="list-block">
@@ -10,15 +10,15 @@
           </td>
 
           <td class="buttons">
-            <button class="btn-get" (click)="selectTaskToGet(task.id)">
+            <button class="btn-get" (click)="selectGet(task.id)">
               <fa-icon [icon]="faEye"></fa-icon>
             </button>
 
-            <button class="btn-update" (click)="selectTaskToUpdate(task.id)">         
+            <button class="btn-update" (click)="selectUpdate(task.id)">         
               <fa-icon [icon]="faPenToSquare"></fa-icon>
             </button>
 
-            <button class="btn-delete" (click)="selectTaskToDelete(task.id)">             
+            <button class="btn-delete" (click)="selectDelete(task.id)">             
               <fa-icon [icon]="faTrashCan"></fa-icon>
             </button>
           </td>

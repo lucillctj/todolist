@@ -71,7 +71,7 @@ app.post('/', async (req: Request, res: Response) => {
     else {
       console.log(results);
       res.status(200);
-      return res.send(`New todo created : {id = ${results.insertId} , name = ${postTodo.name}, date = ${postTodo.date}}`);
+      return res.send(results);
     }
   });
 });

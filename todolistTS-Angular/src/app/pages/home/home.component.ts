@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { TodolistComponent } from 'app/components/todolist/todolist.component';
 
 @Component({
   selector: 'app-home',
@@ -7,34 +8,29 @@ import { Component } from '@angular/core';
 })
 
 export class HomeComponent {
-  taskId: number;
-  taskIdUpdate: number;
-  createTask: boolean;
-  clickTaskUpdate: boolean
-  clickTaskCreate: boolean;
+  taskId: number; //valeur de l'event depuis todolist
+  taskIdUpdate: number; //valeur de l'event depuis todolist
+  createTask: boolean; //valeur de l'event depuis todolist
 
-  showTaskDetails(taskId: number) {
+  @ViewChild(TodolistComponent) todolist: TodolistComponent;
+
+  showTaskDetails(taskId: number) { //reçoit de todolist et redirige vers aperçu
     this.taskId = taskId;
   }
-
-  showTaskToUpdate(taskIdUpdate: number){
+  showTaskToUpdate(taskIdUpdate: number) { // reçoit de todolist et redirige vers modif
     // console.log(taskIdUpdate);
     this.taskIdUpdate = taskIdUpdate;
   }
 
-  // updateTask(clickTaskUpdate: any){
-  //   this.clickTaskUpdate = clickTaskUpdate;
-  // }
-
-  updateListTasks(clickTaskUpdate: boolean){
-    this.clickTaskUpdate = clickTaskUpdate;
+  createNewTask() { //reçoit de todolist et redirige vers création
+    this.createTask = true;
   }
 
-  createNewTask(createTask: boolean){
-    this.createTask = createTask;
+  updateListNew() { //méthode utilisée lors du clickCreate
+    this.todolist.refresh();
   }
 
-  clickCreateNewTask(clickTaskCreate: boolean){
-    this.clickTaskCreate = clickTaskCreate;
+  updateList() { //méthode utilisée lors du clickUpdate
+    this.todolist.refresh();
   }
 };

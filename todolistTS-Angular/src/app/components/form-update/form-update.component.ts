@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { Task } from 'app/models/todolist';
 import { NgForm } from '@angular/forms';
 
-
 @Component({
   selector: 'form-update',
   templateUrl: './form-update.component.html',
@@ -14,20 +13,17 @@ export class FormUpdateComponent implements OnChanges {
   task$: Observable<Task>;
   @ViewChild('taskUpdate') form: NgForm;
   @Input() taskIdUpdate: number;
-  @Output() clickTaskUpdate = new EventEmitter<boolean>();
+  @Output() clickUpdate: EventEmitter<boolean> = new EventEmitter();
 
-  constructor(private appHttpService: AppHttpService) {
-
-  }
+  constructor(private appHttpService: AppHttpService) { }
 
   ngOnChanges(changes: SimpleChanges) {
     this.task$ = this.appHttpService.getTaskById(changes['taskIdUpdate'].currentValue);
   }
 
   updateTask (data: Task) {
-    this.clickTaskUpdate.emit();
     this.appHttpService.updateTaskById(this.taskIdUpdate, data)
       .subscribe(data => this.taskIdUpdate = data.id);
+    this.clickUpdate.emit();
   }
-
 }
